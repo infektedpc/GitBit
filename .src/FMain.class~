@@ -1,0 +1,126 @@
+' Gambas class file
+
+Private shellProc As Process 
+Public Git_sOutput As String = ""
+
+Public Sub _new()
+  
+End
+
+Public Sub Form_Open()
+  
+  FMain.Center
+  
+End
+
+Public Sub Button_Get_Project_Directory_Click()
+
+  Dialog.Title = "Select Project Directory"
+  Dialog.ShowHidden = True
+  
+  If Dialog.SelectDirectory() Then Return
+  TextBox_Project_Directory.Text = Dialog.Path
+  FileChooser1.Root = Dialog.Path
+  CheckBox_Show_Hidden_Dirs.Enabled = True
+  FileChooser1.Enabled = True
+  
+End
+
+Public Sub CheckBox_Show_Hidden_Dirs_Click()
+  
+  If CheckBox_Show_Hidden_Dirs.Value = True Then
+    FileChooser1.ShowHidden = True
+  Else
+    FileChooser1.ShowHidden = False
+  Endif
+  
+End
+
+Public Sub Button_Add_File_Click()
+  
+End
+
+Public Sub Button_Remove_Click()
+  
+  If Not TextBox_Project_Directory.Text = "" Then
+    Git_sOutput = ""
+    Shell "cd " & TextBox_Project_Directory.Text & ";git rm " & Chr(34) & FileChooser1.SelectedPath & Chr(34) To Git_sOutput
+    FileChooser1.Reload
+    If Not Git_sOutput = "" Then
+      Message.Info(Git_sOutput)
+    End If
+  End If
+  
+End
+
+Public Sub Button_Move_Click()
+  
+  If Not TextBox_Project_Directory.Text = "" Then
+    Dialog.Title = "Move To Directory"
+    Dialog.Path = TextBox_Project_Directory.Text
+    If Dialog.SelectDirectory() Then Return
+    Git_sOutput = ""
+    Shell "cd " & TextBox_Project_Directory.Text & ";git mv " & Chr(34) & FileChooser1.SelectedPath & Chr(34) & " " & Chr(34) & Dialog.Path & "/" & File.Name(FileChooser1.SelectedPath) & Chr(34) To Git_sOutput
+    If Not Git_sOutput = "" Then
+      Message.Info(Git_sOutput)
+    Endif
+  End If
+
+End
+
+Public Sub Button_Rename_Click()
+
+  If Not FMain.TextBox_Project_Directory.Text = "" Then
+    Renaming.ShowDialog
+  Endif
+
+End
+
+Public Sub Button_Commit_Click()
+  
+  If Not TextBox_Project_Directory.Text = "" Then
+    If TextBox_Comment.Text = "" Then
+      Message.Info("Please fill out comment")
+    Else
+      Git_sOutput = ""
+      Shell "cd " & TextBox_Project_Directory.Text & ";git commit -m " & "'" & TextBox_Comment.Text & "'" To Git_sOutput
+      If Not Git_sOutput = "" Then
+        Message.Info(Git_sOutput)
+      End If
+    End If
+  End If
+  
+End
+
+Public Sub Button_Push_Click()
+  
+  Shell "cd " & TextBox_Project_Directory.Text & ";xterm -hold -e git push" '"xdg-open "
+  ' shellProc = Exec ["xterm", "--title", "git"]
+   'Wait 1 'this is a bad condition
+   'Print desktop.Find("git")[0]
+   Embedder1.Embed(desktop.FindWindow("git" & "xterm")[0])
+End
+
+
+Public Sub Button_Add_Click()
+
+    If Not TextBox_Project_Directory.Text = "" Then
+      Git_sOutput = ""
+      Shell "cd " & TextBox_Project_Directory.Text & ";git add ." To Git_sOutput
+      If Not Git_sOutput = "" Then
+        Message.Info(Git_sOutput)
+      End If
+  End If
+  
+End
+Public Sub Button_Pull_Click()
+  
+    If Not TextBox_Project_Directory.Text = "" Then
+      Git_sOutput = ""
+      Shell "cd " & TextBox_Project_Directory.Text & ";git pull" To Git_sOutput
+      If Not Git_sOutput = "" Then
+        Message.Info(Git_sOutput)
+      End If
+  End If
+  
+End

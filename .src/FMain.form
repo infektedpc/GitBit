@@ -1,0 +1,81 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,70,51)
+  Resizable = False
+  { TabStrip1 TabStrip
+    MoveScaled(0,1,70,50)
+    Count = 2
+    Index = 0
+    Text = ("tab1")
+    { !TextBox_Project_Directory TextBox
+      MoveScaled(1,1,39,4)
+      #Public = True
+      ReadOnly = True
+    }
+    { Button_Get_Project_Directory Button
+      MoveScaled(41,1,27,4)
+      Text = ("Get Project Directory")
+    }
+    { Button_Commit Button
+      MoveScaled(52,7,16,4)
+      Text = ("Commit")
+    }
+    { Button_Push Button
+      MoveScaled(35,12,16,4)
+      Text = ("Push")
+    }
+    { Button_Pull Button
+      MoveScaled(52,12,16,4)
+      Text = ("Pull")
+    }
+    { TextBox_Comment TextBox
+      MoveScaled(11,7,40,4)
+    }
+    { Label1 Label
+      MoveScaled(1,7,10,4)
+      Text = ("Comment:")
+    }
+    { Button_Add Button
+      MoveScaled(18,12,16,4)
+      Text = ("Add")
+    }
+    { Embedder1 Embedder
+      MoveScaled(0,17,69,27)
+    }
+    Index = 1
+    Text = ("tab2")
+    { CheckBox_Show_Hidden_Dirs CheckBox
+      MoveScaled(1,0,25,4)
+      Enabled = False
+      Text = ("Show Hidden Directories")
+      Value = CheckBox.True
+    }
+    { !FileChooser1 FileChooser
+      MoveScaled(1,4,66,35)
+      #Public = True
+      Enabled = False
+      ShowHidden = True
+      ShowDirectory = True
+      ShowDetailed = True
+      ShowBookmark = False
+    }
+    { Button_Rename Button
+      MoveScaled(52,40,16,4)
+      Text = ("Rename")
+    }
+    { Button_Move Button
+      MoveScaled(35,39.875,16,4)
+      Text = ("Move")
+    }
+    { Button_Remove Button
+      MoveScaled(18,40,16,4)
+      Text = ("Remove")
+    }
+    { Button_Add_File Button
+      MoveScaled(1,40,16,4)
+      Text = ("Add")
+    }
+    Index = 0
+  }
+}
