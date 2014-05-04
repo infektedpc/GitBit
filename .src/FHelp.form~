@@ -1,0 +1,27 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,39)
+  Text = ("Git Bit - Help")
+  Icon = Picture["GitBit128x.png"]
+  { TextArea1 TextArea
+    MoveScaled(0,0,64,33)
+    Text = ("Help File Still Need To Write...")
+    ReadOnly = True
+  }
+  { Button_OK Button
+    MoveScaled(52,34,11,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,34,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+  { Label1 Label
+    MoveScaled(6,34,15,4)
+    Font = Font["+1"]
+    Text = ("--<  I Need Help!")
+  }
+}

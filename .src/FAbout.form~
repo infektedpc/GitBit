@@ -1,0 +1,28 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,72,26)
+  Text = ("GitBit - About")
+  Icon = Picture["GitBit128x.png"]
+  { PictureBox1 PictureBox
+    MoveScaled(1,2,16,16)
+    Picture = Picture["GitBit128x.png"]
+  }
+  { !TextArea1 TextArea
+    MoveScaled(19,2,52,18)
+    #Public = True
+    Text = ("GitBit is an easy to use gui for git without losing features from git itself...\n\nFeatures:\n\n\nGitBit Is Licensed Under GPLV2")
+    ReadOnly = True
+    Wrap = True
+  }
+  { Button_OK Button
+    MoveScaled(61,21,10,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+  { Label1 Label
+    MoveScaled(4,19,11,4)
+    Font = Font["+6"]
+    Text = ("GitBit")
+  }
+}

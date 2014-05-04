@@ -1,0 +1,22 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+FCommit_Log.Center
+
+    FMain.Git_sOutput = ""
+    Shell "cd " & FMain.TextBox_Project_Directory.Text & ";git log" To FMain.Git_sOutput
+    If Not FMain.Git_sOutput = "" Then
+    TextArea1.text = FMain.Git_sOutput
+    Else
+      'Message.Info()
+    End If
+
+End
+
+Public Sub Button_OK_Click()
+
+  FCommit_Log.Close
+
+End

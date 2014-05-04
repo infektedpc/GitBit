@@ -1,0 +1,59 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,63,34)
+  Text = ("GitBit - Checkout")
+  Icon = Picture["GitBit128x.png"]
+  { Label1 Label
+    MoveScaled(2,8,11,4)
+    Text = ("Destination:")
+  }
+  { TextBox1 TextBox
+    MoveScaled(16,8,40,4)
+  }
+  { Button_Dir Button
+    MoveScaled(57,8,5,4)
+    Picture = Picture["icon:/16/directory"]
+  }
+  { Button_Cancel Button
+    MoveScaled(35,29,13,4)
+    Text = ("Cancel")
+    Picture = Picture["icon:/16/delete"]
+  }
+  { Button_OK Button
+    MoveScaled(49,29,13,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+  { TextBox_Url TextBox
+    MoveScaled(16,2,40,4)
+  }
+  { Label_Url Label
+    MoveScaled(2,2,6,4)
+    Text = ("URL:")
+  }
+  { CheckBox1 CheckBox
+    MoveScaled(2,14,12,4)
+    Text = ("Recursive")
+  }
+  { CheckBox2 CheckBox
+    MoveScaled(2,18,16,4)
+    Text = ("Omit Externals")
+  }
+  { MenuButton_Head MenuButton
+    MoveScaled(2,23,15,4)
+  }
+  { TextBox_Head TextBox
+    MoveScaled(18,23,38,4)
+  }
+  { Label2 Label
+    MoveScaled(6,29,17,4)
+    Font = Font["+1"]
+    Text = ("--< Check Me Out!")
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,29,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+}

@@ -1,0 +1,28 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,59,53)
+  Text = ("GitBit - Commit Log")
+  Icon = Picture["GitBit128x.png"]
+  Resizable = False
+  { !TextArea1 TextArea
+    MoveScaled(1,1,57,46)
+    #Public = True
+    ReadOnly = True
+  }
+  { Label2 Label
+    MoveScaled(6,48,16,4)
+    Font = Font["+1"]
+    Text = ("--< Log Me Baby!")
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,48,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+  { Button_OK Button
+    MoveScaled(44,48,13,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+}

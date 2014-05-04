@@ -1,55 +1,135 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,70,50)
+  MoveScaled(0,0,72,53)
+  Text = ("GitBit")
+  Icon = Picture["GitBit128x.png"]
   Resizable = False
+  { File_FL Menu
+    Text = ("File")
+    { File_Init Menu
+      Text = ("Initialize")
+    }
+    { File_Login Menu
+      Text = ("Login")
+    }
+    { File_Clone Menu
+      Text = ("Clone")
+    }
+    { File_Checkout Menu
+      Text = ("Checkout")
+    }
+    { File_Close Menu
+      Text = ("Close")
+    }
+  }
+  { View_VW Menu
+    Text = ("View")
+    { View_Commit_Log Menu
+      Text = ("View Commit Log")
+    }
+    { View_Clear_GitBit_Log Menu
+      Text = ("Clear GitBit Log")
+    }
+  }
+  { Options_Op Menu
+    Text = ("Options")
+    { Options_Log_Style Menu
+      Text = ("Log Styles")
+    }
+  }
+  { Help_HP Menu
+    Text = ("Help")
+    { Help_About Menu
+      Text = ("About")
+    }
+    { Help_Help Menu
+      Text = ("Help")
+    }
+  }
   { TabStrip1 TabStrip
-    MoveScaled(0,1,70,50)
+    MoveScaled(0,0,72,50)
     Count = 2
     Index = 0
-    Text = ("tab1")
+    Text = ("Git")
+    Picture = Picture["gitx16.png"]
+    { TextArea_Log TextArea
+      MoveScaled(1,17,69,23)
+      ReadOnly = True
+    }
     { !TextBox_Project_Directory TextBox
-      MoveScaled(1,1,39,4)
+      MoveScaled(17,1,40,4)
       #Public = True
       ReadOnly = True
     }
     { Button_Get_Project_Directory Button
-      MoveScaled(41,1,27,4)
-      Text = ("Get Project Directory")
+      MoveScaled(58,1,5,4)
+      Picture = Picture["icon:/16/directory"]
     }
     { Button_Commit Button
-      MoveScaled(52,7,16,4)
+      MoveScaled(26,12,11,4)
       Text = ("Commit")
+      Picture = Picture["icon:/16/make"]
     }
     { Button_Push Button
-      MoveScaled(35,12,16,4)
+      MoveScaled(49,12,10,4)
       Text = ("Push")
+      Picture = Picture["icon:/16/up"]
     }
     { Button_Pull Button
-      MoveScaled(52,12,16,4)
+      MoveScaled(60,12,10,4)
       Text = ("Pull")
+      Picture = Picture["icon:/16/down"]
     }
     { TextBox_Comment TextBox
-      MoveScaled(11,7,40,4)
-    }
-    { Label1 Label
-      MoveScaled(1,7,10,4)
-      Text = ("Comment:")
+      MoveScaled(1,12,24,4)
+      Text = ("Add Comment Here")
     }
     { Button_Add Button
-      MoveScaled(18,12,16,4)
+      MoveScaled(38,12,10,4)
       Text = ("Add")
+      Picture = Picture["icon:/16/add"]
+    }
+    { Button_Clear_Log Button
+      MoveScaled(1,41,17,4)
+      Text = ("Clear GitBit Log")
+      Picture = Picture["icon:/16/trash"]
+    }
+    { Button_Commit_Log Button
+      MoveScaled(51,41,19,4)
+      Text = ("View Commit Log")
+      Picture = Picture["icon:/16/text"]
+    }
+    { PictureBox1 PictureBox
+      MoveScaled(27,41,4,4)
+      Picture = Picture["GitBit128x.png"]
+      Stretch = True
+    }
+    { Label2 Label
+      MoveScaled(1,1,12,4)
+      Text = ("Git Directory:")
+    }
+    { Label1 Label
+      MoveScaled(1,6,13,4)
+      Text = ("Git Repository:")
+    }
+    { TextBox1 TextBox
+      MoveScaled(17,6,40,4)
+    }
+    { Button1 Button
+      MoveScaled(58,6,5,4)
+      Picture = Picture["icon:/16/internet"]
+    }
+    { Label3 Label
+      MoveScaled(32,41,13,4)
+      Font = Font["+1"]
+      Text = ("--< Welcome!")
     }
     Index = 1
-    Text = ("tab2")
-    { CheckBox_Show_Hidden_Dirs CheckBox
-      MoveScaled(1,0,25,4)
-      Enabled = False
-      Text = ("Show Hidden Directories")
-      Value = CheckBox.True
-    }
+    Text = ("Manager")
+    Picture = Picture["icon:/16/file-manager"]
     { !FileChooser1 FileChooser
-      MoveScaled(1,4,66,35)
+      MoveScaled(0,0,70,36)
       #Public = True
       Enabled = False
       ShowHidden = True
@@ -58,20 +138,35 @@
       ShowBookmark = False
     }
     { Button_Rename Button
-      MoveScaled(52,40,16,4)
+      MoveScaled(43,41,13,4)
       Text = ("Rename")
+      Picture = Picture["icon:/16/pen"]
     }
     { Button_Move Button
-      MoveScaled(35,39.875,16,4)
+      MoveScaled(29,41,13,4)
       Text = ("Move")
+      Picture = Picture["icon:/16/next"]
     }
     { Button_Remove Button
-      MoveScaled(18,40,16,4)
+      MoveScaled(15,41,13,4)
       Text = ("Remove")
+      Picture = Picture["icon:/16/remove"]
     }
     { Button_Add_File Button
-      MoveScaled(1,40,16,4)
+      MoveScaled(1,41,13,4)
       Text = ("Add")
+      Picture = Picture["icon:/16/add"]
+    }
+    { Button_View_Diff Button
+      MoveScaled(57,41,13,4)
+      Text = ("View Diff")
+      Picture = Picture["icon:/16/flip-h"]
+    }
+    { CheckBox_Show_Hidden_Dirs CheckBox
+      MoveScaled(45,0,25,4)
+      Enabled = False
+      Text = ("Show Hidden Directories")
+      Value = CheckBox.True
     }
     Index = 0
   }

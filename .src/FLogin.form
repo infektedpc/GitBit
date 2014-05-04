@@ -1,0 +1,50 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,52,19)
+  Text = ("GitBit - Login")
+  Icon = Picture["GitBit128x.png"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(2,2,12,4)
+    Text = ("UserName:")
+  }
+  { Label2 Label
+    MoveScaled(2,8,24,4)
+    Text = ("Password:")
+  }
+  { TextBox_User TextBox
+    MoveScaled(13,2,33,4)
+  }
+  { TextBox_Pass TextBox
+    MoveScaled(13,8,33,4)
+  }
+  { Button_Login Button
+    MoveScaled(39,14,12,4)
+    Text = ("Login")
+    Picture = Picture["icon:/16/people"]
+  }
+  { Button_Cancel Button
+    MoveScaled(26,14,12,4)
+    Text = ("Cancel")
+    Picture = Picture["icon:/16/delete"]
+  }
+  { Button_ClearUsr Button
+    MoveScaled(47,2,4,4)
+    Picture = Picture["icon:/16/clear"]
+  }
+  { Button_ClearPass Button
+    MoveScaled(47,8,4,4)
+    Picture = Picture["icon:/16/clear"]
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,14,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+  { Label3 Label
+    MoveScaled(6,14,17,4)
+    Font = Font["+1"]
+    Text = ("--< Git Me In!")
+  }
+}

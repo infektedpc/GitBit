@@ -1,0 +1,50 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,59,29)
+  Text = ("GitBit - Initialize")
+  Icon = Picture["GitBit128x.png"]
+  Resizable = False
+  { TextBox_Destination TextBox
+    MoveScaled(13,2,39,4)
+    ReadOnly = True
+  }
+  { Label2 Label
+    MoveScaled(1,2,12,4)
+    Text = ("Destination:")
+  }
+  { Button_Destination Button
+    MoveScaled(53,2,5,4)
+    Picture = Picture["icon:/16/directory"]
+  }
+  { Button_Cancel Button
+    MoveScaled(33,7,12,4)
+    Text = ("Cancel")
+    Picture = Picture["icon:/16/delete"]
+  }
+  { Button_Create Button
+    MoveScaled(46,7,12,4)
+    Enabled = False
+    Text = ("Create")
+    Picture = Picture["icon:/16/new"]
+  }
+  { TextArea_ReadOut TextArea
+    MoveScaled(1,12,57,11)
+    Text = ("Initializing...\nCreating Git Repository....\nGit Repo Created Succesfully...\nDone!")
+  }
+  { Button_OK Button
+    MoveScaled(46,24,12,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+  { Label1 Label
+    MoveScaled(6,24,13,4)
+    Font = Font["+1"]
+    Text = ("--< Lets Init!")
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,24,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+}

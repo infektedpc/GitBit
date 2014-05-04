@@ -1,0 +1,19 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,10)
+  Text = ("GitBit - Rename")
+  Icon = Picture["GitBit128x.png"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(1,1,24,4)
+    Text = ("Rename File / Directory")
+  }
+  { TextBox_Name TextBox
+    MoveScaled(1,5,46,4)
+  }
+  { Button_Rename Button
+    MoveScaled(48,5,15,4)
+    Text = ("Rename")
+  }
+}

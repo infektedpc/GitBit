@@ -1,0 +1,21 @@
+' Gambas class file
+
+
+
+Public Sub Button_OK_Click()
+
+  FInit.close
+
+End
+
+Public Sub Button_Cancel_Click()
+
+  FInit.Close
+
+End
+
+Public Sub Form_Open()
+
+  FInit.Center
+
+End

@@ -1,0 +1,20 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+  FLogin.Center
+
+End
+
+Public Sub Button_Cancel_Click()
+
+  FLogin.Close
+
+End
+
+Public Sub Button_Login_Click()
+
+  FLogin.Close
+
+End

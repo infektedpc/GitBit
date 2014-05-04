@@ -1,0 +1,47 @@
+' Gambas class file
+
+
+Public Sub Button_Cancel_Click()
+
+  FClone.Close
+
+End
+
+Public Sub Button_OK_Click()
+
+  FClone.Close
+
+End
+
+Public Sub Form_Open()
+
+  FClone.Center
+
+End
+
+Public Sub Button_Destination_Click()
+
+  Dialog.Title = "Select Project Directory"
+  Dialog.Path = ""
+  Dialog.ShowHidden = True
+  
+  If Dialog.SelectDirectory() Then Return
+  TextBox_Destination.Text = Dialog.Path
+  Button_Create.Enabled = True
+
+End
+
+Public Sub Button_Create_Click()
+
+  If Not TextBox_Destination.Text = "" Then
+    Git_sOutput = ""
+    Shell "cd " & TextBox_Destination.Text & ";git clone " To Git_sOutput
+    If Not Git_sOutput = "" Then
+      TextArea_Log.Text = TextArea_Log.text & "Add: " & Git_sOutput
+      Message.Info(Git_sOutput)
+    End If
+  Else
+    Message.Info(MSG_No_Git_Project_Selected)
+  End If
+
+End

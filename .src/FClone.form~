@@ -1,0 +1,52 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,61,20)
+  Text = ("GitBit - Clone Repository")
+  Icon = Picture["GitBit128x.png"]
+  Resizable = False
+  { Label_Url Label
+    MoveScaled(2,3,6,4)
+    Text = ("URL:")
+  }
+  { TextBox_Url TextBox
+    MoveScaled(14,3,40,4)
+  }
+  { Label1 Label
+    MoveScaled(2,9,11,4)
+    Text = ("Destination:")
+  }
+  { TextBox_Destination TextBox
+    MoveScaled(14,9,40,4)
+  }
+  { Button_Destination Button
+    MoveScaled(55,9,5,4)
+    Picture = Picture["icon:/16/directory"]
+  }
+  { Button_Cancel Button
+    MoveScaled(19,15,13,4)
+    Text = ("Cancel")
+    Picture = Picture["icon:/16/delete"]
+  }
+  { Button_OK Button
+    MoveScaled(47,15,13,4)
+    Text = ("OK")
+    Picture = Picture["icon:/16/ok"]
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(1,15,4,4)
+    Picture = Picture["GitBit128x.png"]
+    Stretch = True
+  }
+  { Label2 Label
+    MoveScaled(6,15,13,4)
+    Font = Font["+1"]
+    Text = ("--< Clone Me!")
+  }
+  { Button_Create Button
+    MoveScaled(33,15,13,4)
+    Enabled = False
+    Text = ("Create")
+    Picture = Picture["icon:/16/new"]
+  }
+}
