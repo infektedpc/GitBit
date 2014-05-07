@@ -32,7 +32,7 @@
       Text = ("Clear GitBit Log")
     }
   }
-  { Options_Op Menu
+  { Options_Options Menu
     Text = ("Options")
     { Options_Log_Style Menu
       Text = ("Log Styles")
@@ -81,10 +81,6 @@
       Text = ("Pull")
       Picture = Picture["icon:/16/down"]
     }
-    { TextBox_Comment TextBox
-      MoveScaled(1,12,24,4)
-      Text = ("Add Comment Here")
-    }
     { Button_Add Button
       MoveScaled(38,12,10,4)
       Text = ("Add")
@@ -113,10 +109,10 @@
       MoveScaled(1,6,13,4)
       Text = ("Git Repository:")
     }
-    { TextBox1 TextBox
+    { TextBox_Git_Repository TextBox
       MoveScaled(17,6,40,4)
     }
-    { Button1 Button
+    { Button_Git_Repository Button
       MoveScaled(58,6,5,4)
       Picture = Picture["icon:/16/internet"]
     }
@@ -125,11 +121,15 @@
       Font = Font["+1"]
       Text = ("--< Welcome!")
     }
+    { TextBox_Comment TextBox
+      MoveScaled(1,12,24,4)
+      Text = ("Add Comment Here")
+    }
     Index = 1
     Text = ("Manager")
     Picture = Picture["icon:/16/file-manager"]
     { !FileChooser1 FileChooser
-      MoveScaled(0,0,70,36)
+      MoveScaled(1,4,69,36)
       #Public = True
       Enabled = False
       ShowHidden = True
@@ -163,7 +163,7 @@
       Picture = Picture["icon:/16/flip-h"]
     }
     { CheckBox_Show_Hidden_Dirs CheckBox
-      MoveScaled(45,0,25,4)
+      MoveScaled(1,0,25,4)
       Enabled = False
       Text = ("Show Hidden Directories")
       Value = CheckBox.True

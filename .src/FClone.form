@@ -24,14 +24,9 @@
     Picture = Picture["icon:/16/directory"]
   }
   { Button_Cancel Button
-    MoveScaled(19,15,13,4)
+    MoveScaled(31,15,13,4)
     Text = ("Cancel")
     Picture = Picture["icon:/16/delete"]
-  }
-  { Button_OK Button
-    MoveScaled(47,15,13,4)
-    Text = ("OK")
-    Picture = Picture["icon:/16/ok"]
   }
   { PictureBox1 PictureBox
     MoveScaled(1,15,4,4)
@@ -44,12 +39,12 @@
     Text = ("--< Clone Me!")
   }
   { Button_Create Button
-    MoveScaled(33,15,13,4)
+    MoveScaled(46,15,13,4)
     Enabled = False
     Text = ("Create")
     Picture = Picture["icon:/16/new"]
   }
-  { Button_Copy Button
+  { Button_Paste Button
     MoveScaled(54,2,5,4)
     Picture = Picture["icon:/16/paste"]
   }

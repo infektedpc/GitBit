@@ -6,21 +6,21 @@
   Icon = Picture["GitBit128x.png"]
   Resizable = False
   { Label_Url Label
-    MoveScaled(2,3,6,4)
-    Text = ("URL:")
+    MoveScaled(1,2,8,4)
+    Text = ("Git URL:")
   }
   { TextBox_Url TextBox
-    MoveScaled(14,3,40,4)
+    MoveScaled(13,2,40,4)
   }
   { Label1 Label
-    MoveScaled(2,9,11,4)
+    MoveScaled(1,8,11,4)
     Text = ("Destination:")
   }
   { TextBox_Destination TextBox
-    MoveScaled(14,9,40,4)
+    MoveScaled(13,8,40,4)
   }
   { Button_Destination Button
-    MoveScaled(55,9,5,4)
+    MoveScaled(54,8,5,4)
     Picture = Picture["icon:/16/directory"]
   }
   { Button_Cancel Button
@@ -48,5 +48,9 @@
     Enabled = False
     Text = ("Create")
     Picture = Picture["icon:/16/new"]
+  }
+  { Button_Paste Button
+    MoveScaled(54,2,5,4)
+    Picture = Picture["icon:/16/paste"]
   }
 }

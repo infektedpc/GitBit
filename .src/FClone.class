@@ -7,12 +7,6 @@ Public Sub Button_Cancel_Click()
 
 End
 
-Public Sub Button_OK_Click()
-
-  FClone.Close
-
-End
-
 Public Sub Form_Open()
 
   FClone.Center
@@ -22,7 +16,7 @@ End
 Public Sub Button_Destination_Click()
 
   Dialog.Title = "Select Project Directory"
-  Dialog.Path = ""
+  Dialog.Path = "/home/" & User.Name
   Dialog.ShowHidden = True
   
   If Dialog.SelectDirectory() Then Return
@@ -32,16 +26,27 @@ Public Sub Button_Destination_Click()
 End
 
 Public Sub Button_Create_Click()
-
+Dim Git_sOutput2 As String
   If Not TextBox_Destination.Text = "" Then
-    Git_sOutput = ""
-    Shell "cd " & TextBox_Destination.Text & ";git clone " To Git_sOutput
-    If Not Git_sOutput = "" Then
-      TextArea_Log.Text = TextArea_Log.text & "Add: " & Git_sOutput
-      Message.Info(Git_sOutput)
+  Git_sOutput2 = ""
+    Shell "cd " & TextBox_Destination.Text & ";git clone " & TextBox_Url.Text To Git_sOutput2
+   If Not Git_sOutput2 = "" Then
+    FMain.TextArea_Log.Text = FMain.TextArea_Log.text & "Add: " & Git_sOutput2
+     Message.Info(Git_sOutput2)
     End If
+    FClone.Close
   Else
-    Message.Info(MSG_No_Git_Project_Selected)
+    Message.Info(FMain.MSG_No_Git_Project_Selected)
   End If
 
+End
+
+Public Sub Button_Paste_Click()
+
+Dim From_Clipboard As String
+If Clipboard.Text = 1 Then
+   From_Clipboard = Clipboard.Paste()
+    TextBox_Url.Text = From_Clipboard
+Endif
+  
 End

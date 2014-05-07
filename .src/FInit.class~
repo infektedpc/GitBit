@@ -19,3 +19,29 @@ Public Sub Form_Open()
   FInit.Center
 
 End
+
+Public Sub Button_Destination_Click()
+
+  Dialog.Title = "Select Destination Directory"
+  Dialog.Path = "/home/" & User.Name
+  Dialog.ShowHidden = True
+  
+  If Dialog.SelectDirectory() Then Return
+  TextBox_Destination.Text = Dialog.Path
+  Button_Create.Enabled = True
+
+End
+
+Public Sub Button_Create_Click()
+Dim Git_sOutput2 As String
+
+   FMain.Git_sOutput = ""
+    Shell "cd " & TextBox_Destination.Text & ";git init" To FMain.Git_sOutput
+    'Shell "cd " & TextBox_Destination.Text & ";git add ." To FMain.Git_sOutput2
+    If Not FMain.Git_sOutput = "" Then
+      FMain.TextArea_Log.Text = FMain.TextArea_Log.text & "init: " & FMain.Git_sOutput
+     ' FMain.TextArea_Log.Text = FMain.TextArea_Log.text & "add: " & FMain.Git_sOutput2
+      'Message.Info(FMain.Git_sOutput)
+    End If
+
+End

@@ -1,6 +1,6 @@
 ' Gambas class file
 
-Private shellProc As Process 
+'Private shellProc As Process 
 Public Git_sOutput As String = ""
 Public MSG_No_Git_Project_Selected As String = "Please get a Git project directory."
 Public MSG_No_SelectedPath_FileChooser1 As String = "Please select a file or directory."
@@ -26,23 +26,26 @@ Public Sub Button_Get_Project_Directory_Click()
   FileChooser1.Root = Dialog.Path
   CheckBox_Show_Hidden_Dirs.Enabled = True
   FileChooser1.Enabled = True
+  Git_Repository
   
 End
 
 Public Sub Button_Commit_Click()
   
-  If Not TextBox_Project_Directory.Text = "" Then
-    If TextBox_Comment.Text = "" Then
+  If TextBox_Project_Directory.Text = "" Or TextBox_Comment.Text = "Add Comment Here" Then
       Message.Info("Please fill out comment")
     Else
       Git_sOutput = ""
       Shell "cd " & TextBox_Project_Directory.Text & ";git commit -m " & "'" & TextBox_Comment.Text & "'" To Git_sOutput
       TextBox_Comment.Clear
+      
       If Not Git_sOutput = "" Then
         TextArea_Log.Text = TextArea_Log.text & "Commit: " & Git_sOutput
         Message.Info(Git_sOutput)
       End If
+      
     End If
+    
   Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
@@ -171,13 +174,13 @@ Public Sub Button_Commit_Log_Click()
 End
 
 Public Sub Button_View_Diff_Click()
-
+  
   If Not TextBox_Project_Directory.Text = "" Then
     Shell "cd " & TextBox_Project_Directory.Text & ";git difftool -y -t meld " & FileChooser1.SelectedPath
   Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
-
+  
 End
 
 Public Sub File_Clone_Click()
@@ -215,25 +218,71 @@ Public Sub File_Init_Click()
 End
 
 Public Sub File_Login_Click()
-
+  
   FLogin.Show
-
+  
 End
 
 Public Sub Help_About_Click()
-
+  
   FAbout.Show
-
+  
 End
 
 Public Sub Options_Log_Style_Click()
-
+  
   FlogStyle.Show
-
+  
 End
 
 Public Sub Help_Help_Click()
-
+  
   FHelp.Show
+  
+End
+
+Public Sub Button_Git_Repository_Click()
+
+If Not TextBox_Project_Directory.Text = "" Then
+   'ADD CODE HERE
+  Else
+    Message.Info(MSG_No_Git_Project_Selected)
+  End If
+
+ End
+ 
+ Public Sub Git_Repository()
+  
+   Git_sOutput = ""
+    Shell "cd " & TextBox_Project_Directory.Text & ";git config --get remote.origin.url" To Git_sOutput
+    If Not Git_sOutput = "" Then
+      TextBox_Git_Repository.Text = Git_sOutput
+    End If
+  
+End
+
+Public Sub TextArea_Log_Change()
+
+   TextArea_Log.Select(TextArea_Log.Length, 0)
+
+End
+
+Public Sub TextBox_Comment_GotFocus()
+
+  If TextBox_Comment.text = "Add Comment Here" Then
+    'TextBox_Comment.Select(0, TextBox_Comment.Length)
+    TextBox_Comment.Clear
+  Endif
+  
+
+End
+
+Public Sub TextBox_Comment_LostFocus()
+
+  If TextBox_Comment.text = "" Then
+    
+    TextBox_Comment.text = "Add Comment Here" 
+    
+  Endif
 
 End

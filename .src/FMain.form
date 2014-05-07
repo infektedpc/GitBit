@@ -32,7 +32,7 @@
       Text = ("Clear GitBit Log")
     }
   }
-  { Options_Op Menu
+  { Options_Options Menu
     Text = ("Options")
     { Options_Log_Style Menu
       Text = ("Log Styles")
@@ -53,8 +53,9 @@
     Index = 0
     Text = ("Git")
     Picture = Picture["gitx16.png"]
-    { TextArea_Log TextArea
+    { !TextArea_Log TextArea
       MoveScaled(1,17,69,23)
+      #Public = True
       ReadOnly = True
     }
     { !TextBox_Project_Directory TextBox
@@ -80,10 +81,6 @@
       MoveScaled(60,12,10,4)
       Text = ("Pull")
       Picture = Picture["icon:/16/down"]
-    }
-    { TextBox_Comment TextBox
-      MoveScaled(1,12,24,4)
-      Text = ("Add Comment Here")
     }
     { Button_Add Button
       MoveScaled(38,12,10,4)
@@ -113,10 +110,10 @@
       MoveScaled(1,6,13,4)
       Text = ("Git Repository:")
     }
-    { TextBox1 TextBox
+    { TextBox_Git_Repository TextBox
       MoveScaled(17,6,40,4)
     }
-    { Button1 Button
+    { Button_Git_Repository Button
       MoveScaled(58,6,5,4)
       Picture = Picture["icon:/16/internet"]
     }
@@ -124,6 +121,10 @@
       MoveScaled(32,41,13,4)
       Font = Font["+1"]
       Text = ("--< Welcome!")
+    }
+    { TextBox_Comment TextBox
+      MoveScaled(1,12,24,4)
+      Text = ("Add Comment Here")
     }
     Index = 1
     Text = ("Manager")

@@ -5,13 +5,14 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/FClone.form"
-File[2]=".src/FClone.class:36.20"
-Active=3
-File[3]=".src/FMain.form"
-File[4]=".src/FMain.class:19.1"
-File[5]=".src/FInit.form"
-Count=5
+File[1]=".src/FInit.form"
+File[2]=".src/FMain.form"
+File[3]=".src/FMain.class:60.0"
+File[4]=".src/FInit.class:40.51"
+File[5]=".src/FClone.form"
+Active=6
+File[6]=".src/FClone.class:28.3"
+Count=6
 
 [Watches]
 Count=0
