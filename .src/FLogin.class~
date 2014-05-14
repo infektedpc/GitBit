@@ -28,15 +28,13 @@ Public Sub Button_Login_Click()
 End
 
 Public Sub Process_Read()
-
+Lof
   Dim sLine As String
-'Dim Result As String
-
-  sLine = Read #Last, -256
-
-  'Result &= sLine
-  'Print sLine;
-  FMain.TextArea_Log.text = FMain.TextArea_Log.text & "Login: " & sLine
+  Dim Result As String
+  sLine = Read #Last, Lof(Last)
+  Result &= sLine
+ 'Print sLine;
+  FMain.TextArea_Log.text = "Login: " & Result
 
 End
 
