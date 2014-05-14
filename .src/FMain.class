@@ -54,7 +54,13 @@ End
 
 Public Sub Button_Push_Click()
   
-  Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";xterm -hold -e git push"
+If Not TextBox_Project_Directory.Text = "" Then
+  Git_sOutput = ""
+  'Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";xterm -hold -e git push"
+   FLogin.Show
+     Else
+    Message.Info(MSG_No_Git_Project_Selected)
+  End If
   
 End
 
@@ -238,9 +244,10 @@ Public Sub Help_Help_Click()
 End
 
 Public Sub Button_Git_Repository_Click()
-  
+
   If Not TextBox_Project_Directory.Text = "" Then
-    'ADD CODE HERE
+    'Git_Repository
+    Shell "xdg-open " & Replace(TextBox_Git_Repository.Text, ".git", Null)
   Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
@@ -252,6 +259,7 @@ Public Sub Git_Repository()
   Git_sOutput = ""
   Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git config --get remote.origin.url" To Git_sOutput
   If Not Git_sOutput = "" Then
+    Git_sOutput = Replace(Git_sOutput, "\n", Null)
     TextBox_Git_Repository.Text = Git_sOutput
   End If
   
@@ -283,7 +291,7 @@ Public Sub TextBox_Comment_LostFocus()
 End
 
 Public Sub Options_Log_Style_Font_Click()
-
+  
   Dialog.Font = TextArea_Log.Font
   If Dialog.SelectFont() Then Return
   TextArea_Log.Font = Dialog.Font 
@@ -291,17 +299,17 @@ Public Sub Options_Log_Style_Font_Click()
 End
 
 Public Sub Options_Log_Style_Font_Color_Click()
-
- Dialog.Color = TextArea_Log.Foreground
+  
+  Dialog.Color = TextArea_Log.Foreground
   If Dialog.SelectColor() Then Return
   TextArea_Log.Foreground = Dialog.Color
   
 End
 
 Public Sub Options_Log_Style_Background_Color_Click()
- 
+  
   Dialog.Color = TextArea_Log.Background
   If Dialog.SelectColor() Then Return
   TextArea_Log.Background = Dialog.Color
-
+  
 End

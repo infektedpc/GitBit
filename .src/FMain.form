@@ -63,7 +63,7 @@
     Text = ("Git")
     Picture = Picture["gitx16.png"]
     { !TextArea_Log TextArea
-      MoveScaled(1,18,69,25)
+      MoveScaled(1,21,69,22)
       #Public = True
       ReadOnly = True
     }
@@ -77,32 +77,32 @@
       Picture = Picture["icon:/16/directory"]
     }
     { Button_Commit Button
-      MoveScaled(26,12,11,4)
+      MoveScaled(51,17,19,4)
       Text = ("Commit")
       Picture = Picture["icon:/16/make"]
     }
     { Button_Push Button
-      MoveScaled(49,12,10,4)
+      MoveScaled(51,11,13,4)
       Text = ("Push")
       Picture = Picture["icon:/16/up"]
     }
     { Button_Pull Button
-      MoveScaled(60,12,10,4)
+      MoveScaled(37,11,13,4)
       Text = ("Pull")
       Picture = Picture["icon:/16/down"]
     }
     { Button_Add Button
-      MoveScaled(38,12,10,4)
+      MoveScaled(23,11,13,4)
       Text = ("Add")
       Picture = Picture["icon:/16/add"]
     }
     { Button_Clear_Log Button
-      MoveScaled(1,45,17,4)
+      MoveScaled(1,45,19,4)
       Text = ("Clear GitBit Log")
       Picture = Picture["icon:/16/trash"]
     }
     { Button_Commit_Log Button
-      MoveScaled(51,45,19,4)
+      MoveScaled(49,45,21,4)
       Text = ("View Commit Log")
       Picture = Picture["icon:/16/text"]
     }
@@ -133,7 +133,7 @@
       Text = ("--< Welcome!")
     }
     { TextBox_Comment TextBox
-      MoveScaled(1,12,24,4)
+      MoveScaled(1,17,49,4)
       Text = ("Add Comment Here")
     }
     Index = 1
