@@ -66,11 +66,11 @@ If Not TextBox_Project_Directory.Text = "" Then
   If Not UserName = "" Or If Not UserPassword = "" Then
   Git_sOutput = ""
   Git_Repository = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
-  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push " & "https://" & UserName & ":" & UserPassword & "@" & Git_Repository To Git_sOutput 
- If Not Git_sOutput = "" Then
-    TextArea_Log.text = TextArea_Log.text & "Login: " & Git_sOutput
-    Message.Info(Git_sOutput)
-  Endif
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push " & "https://" & UserName & ":" & UserPassword & "@" & Git_Repository For Read As "Process"
+ 'If Not Git_sOutput = "" Then
+    'TextArea_Log.text = TextArea_Log.text & "Login: " & Git_sOutput
+    'Message.Info(Git_sOutput)
+  'Endif
     Else
       FLogin.TryToPush = True
       FLogin.Show
@@ -78,7 +78,7 @@ If Not TextBox_Project_Directory.Text = "" Then
      Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
-  
+
 End
 
 Public Sub Process_Read()
