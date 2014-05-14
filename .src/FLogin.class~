@@ -19,7 +19,7 @@ End
 Public Sub Button_Login_Click()
 
   Dim Git_Repository As String = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
-  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) For Output As "Process"
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) For Read As "Process"
   If Not GitLogin_sOutput = "" Then
     FMain.TextArea_Log.text = FMain.TextArea_Log.text & "Login: " & GitLogin_sOutput
     Message.Info(GitLogin_sOutput)
@@ -28,13 +28,13 @@ Public Sub Button_Login_Click()
 End
 
 Public Sub Process_Read()
-Lof
+
   Dim sLine As String
-  Dim Result As String
+  'Dim Result As String
   sLine = Read #Last, Lof(Last)
-  Result &= sLine
- 'Print sLine;
-  FMain.TextArea_Log.text = "Login: " & Result
+  'Result &= sLine
+  'Print sLine;
+  FMain.TextArea_Log.text = "Login: " & FMain.TextArea_Log.text & Result
 
 End
 
