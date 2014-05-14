@@ -1,15 +1,14 @@
 ' Gambas class file
 
+Public Sub Form_Open()
+
+  FClone.Center
+
+End
 
 Public Sub Button_Cancel_Click()
 
   FClone.Close
-
-End
-
-Public Sub Form_Open()
-
-  FClone.Center
 
 End
 
@@ -29,9 +28,9 @@ Public Sub Button_Create_Click()
 Dim Git_sOutput2 As String
   If Not TextBox_Destination.Text = "" Then
   Git_sOutput2 = ""
-    Shell "cd " & TextBox_Destination.Text & "&& git clone " & TextBox_Url.Text To Git_sOutput2
+    Shell "git clone " & Quote(TextBox_Url.Text) & " " & Quote(TextBox_Destination.Text) To Git_sOutput2
    If Not Git_sOutput2 = "" Then
-    FMain.TextArea_Log.Text = FMain.TextArea_Log.text & "Add: " & Git_sOutput2
+    FMain.TextArea_Log.Text = FMain.TextArea_Log.text & "Clone: " & Git_sOutput2
      Message.Info(Git_sOutput2)
     End If
     FClone.Close

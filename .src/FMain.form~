@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,72,53)
+  MoveScaled(0,0,72,57)
   Text = ("GitBit")
   Icon = Picture["GitBit128x.png"]
   Resizable = False
@@ -48,22 +48,23 @@
     }
   }
   { TabStrip1 TabStrip
-    MoveScaled(0,0,72,50)
+    MoveScaled(0,0,72,54)
     Count = 2
     Index = 0
     Text = ("Git")
     Picture = Picture["gitx16.png"]
-    { TextArea_Log TextArea
-      MoveScaled(1,17,69,23)
+    { !TextArea_Log TextArea
+      MoveScaled(1,18,69,25)
+      #Public = True
       ReadOnly = True
     }
     { !TextBox_Project_Directory TextBox
-      MoveScaled(17,1,40,4)
+      MoveScaled(16,1,48,4)
       #Public = True
       ReadOnly = True
     }
     { Button_Get_Project_Directory Button
-      MoveScaled(58,1,5,4)
+      MoveScaled(65,1,5,4)
       Picture = Picture["icon:/16/directory"]
     }
     { Button_Commit Button
@@ -87,37 +88,37 @@
       Picture = Picture["icon:/16/add"]
     }
     { Button_Clear_Log Button
-      MoveScaled(1,41,17,4)
+      MoveScaled(1,45,17,4)
       Text = ("Clear GitBit Log")
       Picture = Picture["icon:/16/trash"]
     }
     { Button_Commit_Log Button
-      MoveScaled(51,41,19,4)
+      MoveScaled(51,45,19,4)
       Text = ("View Commit Log")
       Picture = Picture["icon:/16/text"]
     }
     { PictureBox1 PictureBox
-      MoveScaled(27,41,4,4)
+      MoveScaled(28,45,4,4)
       Picture = Picture["GitBit128x.png"]
       Stretch = True
     }
     { Label2 Label
-      MoveScaled(1,1,12,4)
+      MoveScaled(2,1,12,4)
       Text = ("Git Directory:")
     }
     { Label1 Label
-      MoveScaled(1,6,13,4)
+      MoveScaled(2,6,13,4)
       Text = ("Git Repository:")
     }
     { TextBox_Git_Repository TextBox
-      MoveScaled(17,6,40,4)
+      MoveScaled(16,6,48,4)
     }
     { Button_Git_Repository Button
-      MoveScaled(58,6,5,4)
+      MoveScaled(65,6,5,4)
       Picture = Picture["icon:/16/internet"]
     }
     { Label3 Label
-      MoveScaled(32,41,13,4)
+      MoveScaled(33,45,13,4)
       Font = Font["+1"]
       Text = ("--< Welcome!")
     }
@@ -129,7 +130,7 @@
     Text = ("Manager")
     Picture = Picture["icon:/16/file-manager"]
     { !FileChooser1 FileChooser
-      MoveScaled(1,4,69,36)
+      MoveScaled(1,4,69,40)
       #Public = True
       Enabled = False
       ShowHidden = True
@@ -138,27 +139,27 @@
       ShowBookmark = False
     }
     { Button_Rename Button
-      MoveScaled(43,41,13,4)
+      MoveScaled(43,45,13,4)
       Text = ("Rename")
       Picture = Picture["icon:/16/pen"]
     }
     { Button_Move Button
-      MoveScaled(29,41,13,4)
+      MoveScaled(29,45,13,4)
       Text = ("Move")
       Picture = Picture["icon:/16/next"]
     }
     { Button_Remove Button
-      MoveScaled(15,41,13,4)
+      MoveScaled(15,45,13,4)
       Text = ("Remove")
       Picture = Picture["icon:/16/remove"]
     }
     { Button_Add_File Button
-      MoveScaled(1,41,13,4)
+      MoveScaled(1,45,13,4)
       Text = ("Add")
       Picture = Picture["icon:/16/add"]
     }
     { Button_View_Diff Button
-      MoveScaled(57,41,13,4)
+      MoveScaled(57,45,13,4)
       Text = ("View Diff")
       Picture = Picture["icon:/16/flip-h"]
     }

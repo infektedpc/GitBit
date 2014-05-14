@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,61,20)
+  MoveScaled(0,0,61,17)
   Text = ("GitBit - Clone Repository")
   Icon = Picture["GitBit128x.png"]
   Resizable = False
@@ -10,47 +10,42 @@
     Text = ("Git URL:")
   }
   { TextBox_Url TextBox
-    MoveScaled(13,2,40,4)
+    MoveScaled(13,2,41,4)
   }
   { Label1 Label
-    MoveScaled(1,8,11,4)
+    MoveScaled(1,7,11,4)
     Text = ("Destination:")
   }
   { TextBox_Destination TextBox
-    MoveScaled(13,8,40,4)
+    MoveScaled(13,7,41,4)
   }
   { Button_Destination Button
-    MoveScaled(54,8,5,4)
+    MoveScaled(55,7,5,4)
     Picture = Picture["icon:/16/directory"]
   }
   { Button_Cancel Button
-    MoveScaled(19,15,13,4)
+    MoveScaled(33,12,13,4)
     Text = ("Cancel")
     Picture = Picture["icon:/16/delete"]
   }
-  { Button_OK Button
-    MoveScaled(47,15,13,4)
-    Text = ("OK")
-    Picture = Picture["icon:/16/ok"]
-  }
   { PictureBox1 PictureBox
-    MoveScaled(1,15,4,4)
+    MoveScaled(1,12,4,4)
     Picture = Picture["GitBit128x.png"]
     Stretch = True
   }
   { Label2 Label
-    MoveScaled(6,15,13,4)
+    MoveScaled(6,12,13,4)
     Font = Font["+1"]
     Text = ("--< Clone Me!")
   }
   { Button_Create Button
-    MoveScaled(33,15,13,4)
+    MoveScaled(47,12,13,4)
     Enabled = False
     Text = ("Create")
     Picture = Picture["icon:/16/new"]
   }
   { Button_Paste Button
-    MoveScaled(54,2,5,4)
+    MoveScaled(55,2,5,4)
     Picture = Picture["icon:/16/paste"]
   }
 }

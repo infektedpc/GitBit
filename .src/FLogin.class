@@ -1,20 +1,60 @@
 ' Gambas class file
 
+ Public GitLogin_sOutput As String = ""
 
 Public Sub Form_Open()
-
+  
   FLogin.Center
-
+  TextBox_User.Text = FMain.UserName
+  TextBox_Pass.Text = FMain.UserPassword
+  
 End
 
 Public Sub Button_Cancel_Click()
-
+  
   FLogin.Close
-
+  
 End
 
 Public Sub Button_Login_Click()
 
-  FLogin.Close
+  Dim Git_Repository As String = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) For Output As "Process"
+  If Not GitLogin_sOutput = "" Then
+    FMain.TextArea_Log.text = FMain.TextArea_Log.text & "Login: " & GitLogin_sOutput
+    Message.Info(GitLogin_sOutput)
+  Endif
+  
+End
 
+Public Sub Process_Read()
+
+  Dim sLine As String
+'Dim Result As String
+
+  sLine = Read #Last, -256
+
+  'Result &= sLine
+  'Print sLine;
+  FMain.TextArea_Log.text = FMain.TextArea_Log.text & "Login: " & sLine
+
+End
+
+Public Sub Button_ClearUsr_Click()
+  
+  TextBox_User.Clear
+  
+End
+
+Public Sub Form_Close()
+  
+  FMain.UserName = TextBox_User.Text
+  FMain.UserPassword = TextBox_Pass.Text
+  
+End
+
+Public Sub Button_ClearPass_Click()
+  
+  TextBox_Pass.Clear
+  
 End

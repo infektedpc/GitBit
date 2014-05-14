@@ -14,3 +14,9 @@ FCommit_Log.Center
     End If
 
 End
+
+Public Sub Button_OK_Click()
+
+  FCommit_Log.Close
+
+End

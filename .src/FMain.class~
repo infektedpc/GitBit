@@ -18,7 +18,7 @@ End
 Public Sub Button_Get_Project_Directory_Click()
   
   Dialog.Title = "Select Project Directory"
-  Dialog.Path = "/home/infektedpc/Projects/testjunkrep" 'REMOVE ME
+  Dialog.Path = "/home/" & User.Name
   Dialog.ShowHidden = True
   
   If Dialog.SelectDirectory() Then Return
@@ -32,20 +32,18 @@ End
 
 Public Sub Button_Commit_Click()
   
-  If TextBox_Project_Directory.Text = "" Or TextBox_Comment.Text = "Add Comment Here" Then
+  If Not TextBox_Project_Directory.Text = "" Then
+    If TextBox_Comment.Text = "" Or TextBox_Comment.Text = "Add Comment Here" Then
       Message.Info("Please fill out comment")
     Else
       Git_sOutput = ""
-      Shell "cd " & TextBox_Project_Directory.Text & ";git commit -m " & "'" & TextBox_Comment.Text & "'" To Git_sOutput
+      Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git commit -m " & "'" & TextBox_Comment.Text & "'" To Git_sOutput
       TextBox_Comment.Clear
-      
       If Not Git_sOutput = "" Then
         TextArea_Log.Text = TextArea_Log.text & "Commit: " & Git_sOutput
         Message.Info(Git_sOutput)
       End If
-      
     End If
-    
   Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
@@ -54,7 +52,7 @@ End
 
 Public Sub Button_Push_Click()
   
-  Shell "cd " & TextBox_Project_Directory.Text & ";xterm -hold -e git push" '"xdg-open "
+  Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";xterm -hold -e git push"
   
 End
 
@@ -62,7 +60,7 @@ Public Sub Button_Add_Click()
   
   If Not TextBox_Project_Directory.Text = "" Then
     Git_sOutput = ""
-    Shell "cd " & TextBox_Project_Directory.Text & ";git add ." To Git_sOutput
+    Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git add ." To Git_sOutput
     If Not Git_sOutput = "" Then
       TextArea_Log.Text = TextArea_Log.text & "Add: " & Git_sOutput
       Message.Info(Git_sOutput)
@@ -77,7 +75,7 @@ Public Sub Button_Pull_Click()
   
   If Not TextBox_Project_Directory.Text = "" Then
     Git_sOutput = ""
-    Shell "cd " & TextBox_Project_Directory.Text & ";git pull" To Git_sOutput
+    Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git pull" To Git_sOutput
     If Not Git_sOutput = "" Then
       TextArea_Log.text = TextArea_Log.text & "Pull: " & Git_sOutput
       Message.Info(Git_sOutput)
@@ -113,9 +111,10 @@ Public Sub Button_Remove_Click()
   If Not TextBox_Project_Directory.Text = "" Then
     If Not FileChooser1.SelectedPath = "" Then
       Git_sOutput = ""
-      Shell "cd " & TextBox_Project_Directory.Text & ";git rm " & Chr(34) & FileChooser1.SelectedPath & Chr(34) To Git_sOutput
+      Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git rm " & Quote(FileChooser1.SelectedPath) To Git_sOutput
       FileChooser1.Reload
       If Not Git_sOutput = "" Then
+       TextArea_Log.Text = TextArea_Log.text & "Remove: " & Git_sOutput
         Message.Info(Git_sOutput)
       End If
     Else
@@ -135,9 +134,10 @@ Public Sub Button_Move_Click()
       Dialog.Path = TextBox_Project_Directory.Text
       If Dialog.SelectDirectory() Then Return
       Git_sOutput = ""
-      Shell "cd " & TextBox_Project_Directory.Text & ";git mv " & Chr(34) & FileChooser1.SelectedPath & Chr(34) & " " & Chr(34) & Dialog.Path & "/" & File.Name(FileChooser1.SelectedPath) & Chr(34) To Git_sOutput
+      Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git mv " & Quote(FileChooser1.SelectedPath) & " " & Quote(Dialog.Path & "/" & File.Name(FileChooser1.SelectedPath)) To Git_sOutput
       FMain.FileChooser1.Reload
       If Not Git_sOutput = "" Then
+        TextArea_Log.Text = TextArea_Log.text & "Move: " & Git_sOutput
         Message.Info(Git_sOutput)
       Endif
     Else
@@ -176,7 +176,7 @@ End
 Public Sub Button_View_Diff_Click()
   
   If Not TextBox_Project_Directory.Text = "" Then
-    Shell "cd " & TextBox_Project_Directory.Text & ";git difftool -y -t meld " & FileChooser1.SelectedPath
+    Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git difftool -y -t meld " & Quote(FileChooser1.SelectedPath)
   Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
@@ -254,7 +254,7 @@ If Not TextBox_Project_Directory.Text = "" Then
  Public Sub Git_Repository()
   
    Git_sOutput = ""
-    Shell "cd " & TextBox_Project_Directory.Text & ";git config --get remote.origin.url" To Git_sOutput
+    Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git config --get remote.origin.url" To Git_sOutput
     If Not Git_sOutput = "" Then
       TextBox_Git_Repository.Text = Git_sOutput
     End If

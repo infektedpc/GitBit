@@ -10,11 +10,11 @@ End
 Public Sub Button_Rename_Click()
   
   FMain.Git_sOutput = ""
-  Shell "cd " & FMain.TextBox_Project_Directory.Text & ";git mv " & Chr(34) & FMain.FileChooser1.SelectedPath & Chr(34) & " " & Chr(34) & File.Dir(FMain.FileChooser1.SelectedPath) & "/" & TextBox_Name.Text & Chr(34) To FMain.Git_sOutput
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git mv " & Quote(FMain.FileChooser1.SelectedPath) & " " & Quote(File.Dir(FMain.FileChooser1.SelectedPath) & "/" & TextBox_Name.Text) To FMain.Git_sOutput
   FMain.FileChooser1.Reload
   If Not FMain.Git_sOutput = "" Then
     Message.Info(FMain.Git_sOutput)
   Endif
-  Renaming.Close
+  FRenaming.Close
   
 End
