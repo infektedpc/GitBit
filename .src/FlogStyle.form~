@@ -1,47 +1,43 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,98,56)
+  MoveScaled(0,0,98,54)
   Text = ("GitBit - Log View Styles")
   Icon = Picture["GitBit128x.png"]
+  Resizable = False
   { ColorChooser1 ColorChooser
-    MoveScaled(1,1,47,31)
+    MoveScaled(1,1,49,31)
   }
   { TextArea1 TextArea
-    MoveScaled(1,34,47,16)
+    MoveScaled(1,32,96,16)
     Text = ("Before...\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in sem lectus. Quisque a interdum felis, eu scelerisque nisl. Nullam odio tortor, pulvinar vel ultricies sit amet, accumsan a eros. ")
     Wrap = True
   }
   { Button_Set Button
-    MoveScaled(32,51,16,4)
+    MoveScaled(81,49,16,4)
     Text = ("Set Style")
     Picture = Picture["icon:/16/apply"]
   }
   { Button_Reset Button
-    MoveScaled(1,51,16,4)
+    MoveScaled(47,49,16,4)
     Text = ("Reset")
     Picture = Picture["icon:/16/jump"]
   }
   { FontChooser1 FontChooser
-    MoveScaled(50,2,47,30)
+    MoveScaled(50,1,47,31)
   }
   { Button_Cancel Button
-    MoveScaled(18,51,13,4)
+    MoveScaled(1,49,13,4)
     Text = ("Cancel")
     Picture = Picture["icon:/16/delete"]
   }
-  { TextArea2 TextArea
-    MoveScaled(50,34,47,16)
-    Text = ("After....\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in sem lectus. Quisque a interdum felis, eu scelerisque nisl. Nullam odio tortor, pulvinar vel ultricies sit amet, accumsan a eros. ")
-    Wrap = True
-  }
   { Button_OK Button
-    MoveScaled(81,51,16,4)
+    MoveScaled(15,49,16,4)
     Text = ("OK")
     Picture = Picture["icon:/16/ok"]
   }
   { Button_Close Button
-    MoveScaled(64,51,16,4)
+    MoveScaled(64,49,16,4)
     Text = ("Close")
     Picture = Picture["icon:/16/delete"]
   }

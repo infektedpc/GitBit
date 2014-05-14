@@ -4,6 +4,7 @@
   MoveScaled(0,0,72,26)
   Text = ("GitBit - About")
   Icon = Picture["GitBit128x.png"]
+  Resizable = False
   { PictureBox1 PictureBox
     MoveScaled(1,2,16,16)
     Picture = Picture["GitBit128x.png"]

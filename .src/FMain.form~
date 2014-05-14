@@ -36,6 +36,15 @@
     Text = ("Options")
     { Options_Log_Style Menu
       Text = ("Log Styles")
+      { Options_Log_Style_Font Menu
+        Text = ("Font Style")
+      }
+      { Options_Log_Style_Font_Color Menu
+        Text = ("Font Color")
+      }
+      { Options_Log_Style_Background_Color Menu
+        Text = ("Background Color")
+      }
     }
   }
   { Help_HP Menu
@@ -110,8 +119,9 @@
       MoveScaled(2,6,13,4)
       Text = ("Git Repository:")
     }
-    { TextBox_Git_Repository TextBox
+    { !TextBox_Git_Repository TextBox
       MoveScaled(16,6,48,4)
+      #Public = True
     }
     { Button_Git_Repository Button
       MoveScaled(65,6,5,4)

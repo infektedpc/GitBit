@@ -1,7 +1,3 @@
-[Bookmarks]
-FRenaming=[]
-FLogin=[]
-
 [Breakpoints]
 Count=0
 
@@ -9,13 +5,7 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/FMain.form"
-File[2]=".src/FLogin.form"
-Active=3
-File[3]=".src/FLogin.class:21.172"
-File[4]=".src/FMain.class:81.6"
-Fold[4]=[9,13,19,34,54,90,96,167,177,187,193,199,205,215,221,227,233,239,245,255,265,271,281]
-Count=4
+Count=0
 
 [Watches]
 Count=0

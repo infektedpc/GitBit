@@ -35,7 +35,16 @@
   { Options_Options Menu
     Text = ("Options")
     { Options_Log_Style Menu
-      Text = ("Log Styles")
+      Text = ("Log Style")
+      { Options_Log_Style_Font Menu
+        Text = ("Font Style")
+      }
+      { Options_Log_Style_Font_Color Menu
+        Text = ("Font Color")
+      }
+      { Options_Log_Style_Background_Color Menu
+        Text = ("Background Color")
+      }
     }
   }
   { Help_HP Menu

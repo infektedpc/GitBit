@@ -1,2 +1,38 @@
 ' Gambas class file
 
+
+Public Sub Form_Open()
+
+  FlogStyle.Center
+
+End
+
+Public Sub Button_Close_Click()
+
+  FlogStyle.Close
+
+End
+
+Public Sub Button_OK_Click()
+
+  FlogStyle.Close
+
+End
+
+Public Sub Button_Set_Click()
+
+  
+
+End
+
+Public Sub ColorChooser1_Change()
+
+  TextArea1.Foreground = ColorChooser1.Value
+
+End
+
+Public Sub FontChooser1_Change()
+
+   TextArea1.Font.Name = FontChooser1.SelectedFont
+
+End
