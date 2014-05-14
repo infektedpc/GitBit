@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Public TryToPush As Boolean = False
+
 Public Sub Form_Open()
   
   FLogin.Center
@@ -15,20 +17,13 @@ Public Sub Button_Cancel_Click()
 End
 
 Public Sub Button_Login_Click()
-
-FLogin.Close
-
-End
-
-Public Sub Process_Read()
-
-  Dim sLine As String
-  'Dim Result As String
-  sLine = Read #Last, -256
-  'Result &= sLine
-  'Print sLine;
-  FMain.TextArea_Log.text = "Login: " & FMain.TextArea_Log.text & sLine
-
+  
+  If TryToPush = True Then
+    FMain.Button_Push.Value = True
+  Endif
+  TryToPush = False
+  FLogin.Close
+  
 End
 
 Public Sub Button_ClearUsr_Click()

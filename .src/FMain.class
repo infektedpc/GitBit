@@ -72,12 +72,24 @@ If Not TextBox_Project_Directory.Text = "" Then
     Message.Info(Git_sOutput)
   Endif
     Else
+      FLogin.TryToPush = True
       FLogin.Show
   Endif
      Else
     Message.Info(MSG_No_Git_Project_Selected)
   End If
   
+End
+
+Public Sub Process_Read()
+
+  Dim sLine As String
+  'Dim Result As String
+  sLine = Read #Last, -256
+  'Result &= sLine
+  'Print sLine;
+  FMain.TextArea_Log.text = "Login: " & FMain.TextArea_Log.text & sLine
+
 End
 
 Public Sub Button_Add_Click()

@@ -58,7 +58,6 @@
   }
   { TabStrip1 TabStrip
     MoveScaled(0,0,72,54)
-    Arrangement = Arrange.Fill
     Count = 2
     Index = 0
     Text = ("Git")

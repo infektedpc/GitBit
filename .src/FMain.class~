@@ -66,7 +66,7 @@ If Not TextBox_Project_Directory.Text = "" Then
   If Not UserName = "" Or If Not UserPassword = "" Then
   Git_sOutput = ""
   Git_Repository = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
-  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) To Git_sOutput
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & UserName & ":" & UserPassword & "@" & Quote(Git_Repository) To Git_sOutput
   If Not Git_sOutput = "" Then
     TextArea_Log.text = TextArea_Log.text & "Login: " & Git_sOutput
     Message.Info(Git_sOutput)
@@ -78,6 +78,17 @@ If Not TextBox_Project_Directory.Text = "" Then
     Message.Info(MSG_No_Git_Project_Selected)
   End If
   
+End
+
+Public Sub Process_Read()
+
+  Dim sLine As String
+  'Dim Result As String
+  sLine = Read #Last, -256
+  'Result &= sLine
+  'Print sLine;
+  FMain.TextArea_Log.text = "Login: " & FMain.TextArea_Log.text & sLine
+
 End
 
 Public Sub Button_Add_Click()

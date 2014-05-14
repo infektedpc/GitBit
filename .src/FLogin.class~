@@ -1,6 +1,6 @@
 ' Gambas class file
 
- Public GitLogin_sOutput As String = ""
+Public TryToPush As Boolean = False
 
 Public Sub Form_Open()
   
@@ -22,17 +22,6 @@ FLogin.Close
 
 End
 
-Public Sub Process_Read()
-
-  Dim sLine As String
-  'Dim Result As String
-  sLine = Read #Last, -256
-  'Result &= sLine
-  'Print sLine;
-  FMain.TextArea_Log.text = "Login: " & FMain.TextArea_Log.text & sLine
-
-End
-
 Public Sub Button_ClearUsr_Click()
   
   TextBox_User.Clear
@@ -44,6 +33,11 @@ Public Sub Form_Close()
   FMain.UserName = TextBox_User.Text
   FMain.UserPassword = TextBox_Pass.Text
   
+ If TryToPush = True Then
+   FMain.Button_Push.Value = True
+ Endif
+ TryToPush = False
+ 
 End
 
 Public Sub Button_ClearPass_Click()

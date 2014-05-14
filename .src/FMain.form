@@ -81,8 +81,9 @@
       Text = ("Commit")
       Picture = Picture["icon:/16/make"]
     }
-    { Button_Push Button
+    { !Button_Push Button
       MoveScaled(51,11,13,4)
+      #Public = True
       Text = ("Push")
       Picture = Picture["icon:/16/up"]
     }
