@@ -72,6 +72,7 @@ If Not TextBox_Project_Directory.Text = "" Then
     Message.Info(Git_sOutput)
   Endif
     Else
+      FLogin.TryToPush = True
       FLogin.Show
   Endif
      Else
