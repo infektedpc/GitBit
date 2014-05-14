@@ -34,11 +34,11 @@
     Text = ("URL:")
   }
   { CheckBox1 CheckBox
-    MoveScaled(2,14,12,4)
+    MoveScaled(2,14,13,4)
     Text = ("Recursive")
   }
   { CheckBox2 CheckBox
-    MoveScaled(2,18,16,4)
+    MoveScaled(2,18,17,4)
     Text = ("Omit Externals")
   }
   { MenuButton_Head MenuButton

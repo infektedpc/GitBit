@@ -4,6 +4,7 @@
   MoveScaled(0,0,63,34)
   Text = ("GitBit - Checkout")
   Icon = Picture["GitBit128x.png"]
+  Resizable = False
   { Label1 Label
     MoveScaled(2,8,11,4)
     Text = ("Destination:")
