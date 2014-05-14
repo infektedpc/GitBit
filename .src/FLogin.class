@@ -1,7 +1,5 @@
 ' Gambas class file
 
- Public GitLogin_sOutput As String = ""
-
 Public Sub Form_Open()
   
   FLogin.Center
@@ -18,14 +16,8 @@ End
 
 Public Sub Button_Login_Click()
 
-  Dim Git_Repository As String = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
-  GitLogin_sOutput = ""
-  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) To GitLogin_sOutput
-  If Not GitLogin_sOutput = "" Then
-    FMain.TextArea_Log.text = FMain.TextArea_Log.text & "Login: " & GitLogin_sOutput
-    Message.Info(GitLogin_sOutput)
-  Endif
-  
+FLogin.Close
+
 End
 
 Public Sub Process_Read()

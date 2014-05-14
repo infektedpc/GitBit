@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.1.1
+# Compiled with Gambas 3.5.3
 Title=Git Bit
 Startup=FMain
 Icon=GitBit128x.png

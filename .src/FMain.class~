@@ -6,7 +6,8 @@ Public UserPassword As String
 Public Git_sOutput As String = ""
 Public MSG_No_Git_Project_Selected As String = "Please get a Git project directory."
 Public MSG_No_SelectedPath_FileChooser1 As String = "Please select a file or directory."
-
+Public Git_Repository As String = ""
+ 
 Public Sub _new()
   
 End
@@ -28,7 +29,13 @@ Public Sub Button_Get_Project_Directory_Click()
   FileChooser1.Root = Dialog.Path
   CheckBox_Show_Hidden_Dirs.Enabled = True
   FileChooser1.Enabled = True
-  Git_Repository
+ 
+  Git_sOutput = ""
+  Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git config --get remote.origin.url" To Git_sOutput
+  If Not Git_sOutput = "" Then
+    Git_sOutput = Replace(Git_sOutput, "\n", Null)
+    TextBox_Git_Repository.Text = Git_sOutput
+  End If
   
 End
 
@@ -54,9 +61,23 @@ End
 
 Public Sub Button_Push_Click()
   
+If Not TextBox_Project_Directory.Text = "" Then
   'Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";xterm -hold -e git push"
-   FLogin.Show
-   
+  If Not UserName = "" Or If Not UserPassword = "" Then
+  Git_sOutput = ""
+  Git_Repository = Replace(FMain.TextBox_Git_Repository.Text, "https://", "")
+  Shell "cd " & Quote(FMain.TextBox_Project_Directory.Text) & ";git push https://" & TextBox_User.Text & ":" & TextBox_Pass.Text & "@" & Quote(Git_Repository) To Git_sOutput
+  If Not Git_sOutput = "" Then
+    TextArea_Log.text = TextArea_Log.text & "Login: " & Git_sOutput
+    Message.Info(Git_sOutput)
+  Endif
+    Else
+      FLogin.Show
+  Endif
+     Else
+    Message.Info(MSG_No_Git_Project_Selected)
+  End If
+  
 End
 
 Public Sub Button_Add_Click()
@@ -245,17 +266,6 @@ Public Sub Button_Git_Repository_Click()
     Shell "xdg-open " & Replace(TextBox_Git_Repository.Text, ".git", Null)
   Else
     Message.Info(MSG_No_Git_Project_Selected)
-  End If
-  
-End
-
-Public Sub Git_Repository()
-  
-  Git_sOutput = ""
-  Shell "cd " & Quote(TextBox_Project_Directory.Text) & ";git config --get remote.origin.url" To Git_sOutput
-  If Not Git_sOutput = "" Then
-    Git_sOutput = Replace(Git_sOutput, "\n", Null)
-    TextBox_Git_Repository.Text = Git_sOutput
   End If
   
 End
