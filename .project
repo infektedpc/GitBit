@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.3
+# Compiled with Gambas 3.6.0
 Title=Git Bit
 Startup=FMain
 Icon=GitBit128x.png
@@ -7,7 +7,6 @@ Version=0.0.1
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
-Component=gb.desktop
 Component=gb.qt4.ext
 TabSize=2
 Packager=1
